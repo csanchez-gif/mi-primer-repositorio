@@ -6,7 +6,7 @@
 
 ## Diagrama de arquitectura
 
-![Diagrama de arquitectura de la miniaplicación](./HerramientaDrawIO.png)
+![Diagrama de arquitectura de la miniaplicación](docs/HerramientaDrawIO.png)
 
 El flujo completo va desde la pregunta del usuario hasta la respuesta final, pasando por `armar_peticion`, `enviar_peticion` (con la credencial `GEMINI_API_KEY` leída desde `.env` y el manejo de errores en `try/except`) y `extraer_texto` (que además calcula el costo a partir de `usageMetadata`). El diagrama completo está en `docs/diagrama-arquitectura.png`.
 
