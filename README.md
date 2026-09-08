@@ -6,9 +6,26 @@
 
 ## Diagrama de arquitectura
 
-![Diagrama de arquitectura de la miniaplicación](docs/HerramientaDrawIO.png)
+```
+Pregunta del usuario
+        │
+        ▼
+armar_peticion      (arma URL y cuerpo; lee GEMINI_API_KEY desde .env)
+        │
+        ▼
+enviar_peticion     (envía y recibe respuesta; try/except: error de conexión)
+        │
+        ▼
+Proveedor (API externa)   (genera la respuesta, token a token)
+        │
+        ▼
+extraer_texto       (saca el texto de la respuesta; usageMetadata → calcular_costo)
+        │
+        ▼
+Respuesta final
+```
 
-El flujo completo va desde la pregunta del usuario hasta la respuesta final, pasando por `armar_peticion`, `enviar_peticion` (con la credencial `GEMINI_API_KEY` leída desde `.env` y el manejo de errores en `try/except`) y `extraer_texto` (que además calcula el costo a partir de `usageMetadata`). El diagrama completo está en `docs/diagrama-arquitectura.png`.
+Diagrama completo, en imagen: [`docs/nombre-de-tu-imagen.png`](docs/nombre-de-tu-imagen.png).
 
 ## Comparación de candidatos
 
